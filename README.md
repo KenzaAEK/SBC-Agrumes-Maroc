@@ -21,25 +21,21 @@ Le système est entièrement consolidé dans un fichier unique **`agrumes.pl`** 
 
 Le fichier `agrumes.pl` est organisé en **trois couches logiques principales** :
 
-### 📚 Base de Connaissances (BC)
+### Base de Connaissances (BC)
 - Contient l’**ontologie détaillée** du domaine agrumicole, composée de **31 paramètres discriminants** (aspect des feuilles, symétrie, porte-greffe, écoulement de gomme, présence de fumagine, etc.).
 - Intègre les **15 règles de production** reliant les combinaisons de symptômes observés aux pathologies cibles (Cératite, Gommose, Fumagine, Greening, Psorose et Stubborn).
 - Définit une **hiérarchie taxonomique de type Frames**, permettant l’héritage des propriétés biologiques et économiques des maladies.
 
-### 🧠 Moteur d’Inférence
+### Moteur d’Inférence
 - Exploite le mécanisme de **chaînage arrière (SLD Resolution)** natif de Prolog pour valider ou infirmer les hypothèses diagnostiques.
 - Implémente une **stratégie de recherche hiérarchique** sous forme d’arbre de décision afin d’optimiser l’ordre du questionnement  
   *(Organe → Symptôme → Facteur discriminant)*.
 - Gère la **pondération des diagnostics** à l’aide de **coefficients de vraisemblance (CV)** ainsi que des règles d’exclusion pour améliorer la précision des résultats.
 
-### 💬 Interface et Dialogue
+### Interface et Dialogue
 - Assure la **saisie dynamique des faits**, permettant à l’utilisateur d’introduire les observations de terrain de manière interactive.
 - Intègre un module d’**explicabilité**, capable de restituer la **trace complète du raisonnement** et de justifier chaque diagnostic à partir des règles activées.
 - Déclenche des **alertes économiques** basées sur les seuils de rentabilité (**62 800 DH/ha**) et les pertes de rendement estimées.
-
----
-
-### 💡 Note sur la Portabilité et l’Évolutivité
 
 Le regroupement de l’ensemble des modules dans le fichier unique **`agrumes.pl`** permet à l’utilisateur de charger l’intégralité du système expert avec une seule commande dans **SWI-Prolog**.  
 Ce choix répond à l’objectif d’**évolutivité et de simplicité de déploiement**, tout en facilitant la démonstration et l’évaluation du système lors de la soutenance académique.
